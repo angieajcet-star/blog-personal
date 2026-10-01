@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angie's Diary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navegacion Superior -->
+  <header class="navbar">
+    <div class="logo">Angie's Diary</div>
+    <nav class="nav-links">
+      <a href="#inicio" class="active">Inicio</a>
+      <a href="#sobre-mi">Sobre mi</a>
+      <a href="#blog">Blog</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">Modo Noche</button>
+      <button class="subscribe-btn" onclick="scrollToNewsletter()">Suscribete</button>
+    </div>
+  </header>
+
+  <!-- Banner Principal / Hero -->
+  <section class="hero" id="inicio">
+    <div class="hero-text">
+      <h1 class="handwritten-title">Bienvenida a mi rincon creativo</h1>
+      <p class="hero-desc">Un espacio donde comparto mis ideas, aprendizajes, inspiracion y todo lo que me hace crecer cada dia.</p>
+      <button class="hero-btn" onclick="openAbout()">Conoceme mejor</button>
+    </div>
+
+    <div class="hero-gallery">
+      <div class="polaroid p1">
+        <img src="blog1.png" alt="Acuarelas y arte">
+      </div>
+      <div class="polaroid p2">
+        <img src="blog2.png" alt="Diario y notas">
+      </div>
+      <div class="note-card">
+        <p class="handwritten-note">Disfruta las pequenas cosas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido Principal -->
+  <main class="main-layout">
+    
+    <!-- Seccion de Ultimas Entradas -->
+    <section class="posts-section" id="blog">
+      <div class="section-header">
+        <h2 class="handwritten-subtitle">Ultimas entradas</h2>
+        <a href="#todas" class="view-all-link">Ver todas</a>
+      </div>
+
+      <div class="posts-grid">
+        
+        <article class="post-card">
+          <div class="post-img-container">
+            <img src="blog3.png" alt="Lectura de tarde">
+          </div>
+          <div class="post-content">
+            <span class="category-tag">Desarrollo personal</span>
+            <h3 class="post-title">Pequenos habitos, grandes cambios</h3>
+            <p class="post-excerpt">Como los pequenos cambios diarios pueden transformar tu vida por completo.</p>
+            <div class="post-meta">
+              <span>20 de mayo, 2026</span>
+              <span>5 min de lectura</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-img-container">
+            <img src="blog4.png" alt="Paseo por la tarde">
+          </div>
+          <div class="post-content">
+            <span class="category-tag">Inspiracion</span>
+            <h3 class="post-title">Cosas que me inspiran</h3>
+            <p class="post-excerpt">Una lista de todo lo que me motiva, desde la musica hasta los atardeceres.</p>
+            <div class="post-meta">
+              <span>15 de mayo, 2026</span>
+              <span>4 min de lectura</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-img-container">
+            <img src="blog5.png" alt="Proyectos creativos">
+          </div>
+          <div class="post-content">
+            <span class="category-tag">Estilo de vida</span>
+            <h3 class="post-title">Organizacion que si funciona</h3>
+            <p class="post-excerpt">Mis tips para mantenerme organizada sin estresarme en el intento.</p>
+            <div class="post-meta">
+              <span>10 de mayo, 2026</span>
+              <span>6 min de lectura</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Banner de Suscripcion (Boletin) -->
+      <div class="newsletter-card" id="newsletter">
+        <div class="newsletter-info">
+          <h3>Te gustaria recibir cositas lindas?</h3>
+          <p>Suscribete a mi boletin y recibe contenido exclusivo directo en tu correo.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+          <input type="email" placeholder="Tu correo electronico" required id="email-input">
+          <button type="submit">Suscribirme!</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Barra Lateral (Sidebar) -->
+    <aside class="sidebar">
+      
+      <!-- Card Sobre mi -->
+      <div class="widget about-widget" id="sobre-mi">
+        <h3 class="widget-title handwritten-title">Sobre mi</h3>
+        <div class="avatar-container">
+          <img src="blog6.png" alt="Foto de Angie">
+        </div>
+        <p class="about-text">Hola! Soy Angie. Me encanta aprender, crear, programar, escuchar musica y sonar en grande. Este blog es mi espacio para compartir y conectar contigo.</p>
+        <button class="secondary-btn" onclick="openAbout()">Mas sobre mi</button>
+      </div>
+
+      <!-- Card Categorias -->
+      <div class="widget categories-widget" id="categorias">
+        <h3 class="widget-title handwritten-title">Categorias</h3>
+        <ul class="categories-list">
+          <li onclick="filterCategory('Desarrollo personal')">Desarrollo personal</li>
+          <li onclick="filterCategory('Estilo de vida')">Estilo de vida</li>
+          <li onclick="filterCategory('Inspiracion')">Inspiracion</li>
+          <li onclick="filterCategory('Estudios')">Estudios</li>
+          <li onclick="filterCategory('Tecnologia')">Tecnologia</li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
